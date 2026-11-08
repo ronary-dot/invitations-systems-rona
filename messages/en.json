@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "Invitation System",
+    "tagline": "Create event invitations, send them to guests and track RSVPs"
+  },
+  "home": {
+    "supabaseConnected": "Supabase connection is configured.",
+    "supabaseMissing": "Supabase variables are missing. See .env.example."
+  },
+  "nav": {
+    "language": "Language"
+  },
+  "locale": {
+    "he": "עברית",
+    "en": "English"
+  }
+}

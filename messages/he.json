@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "מערכת הזמנות",
+    "tagline": "יצירת הזמנות לאירועים, שליחה למוזמנים ומעקב אחרי אישורי הגעה"
+  },
+  "home": {
+    "supabaseConnected": "החיבור ל-Supabase מוגדר.",
+    "supabaseMissing": "משתני Supabase חסרים. ראה .env.example."
+  },
+  "nav": {
+    "language": "שפה"
+  },
+  "locale": {
+    "he": "עברית",
+    "en": "English"
+  }
+}
