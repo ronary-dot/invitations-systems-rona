@@ -28,7 +28,8 @@ npm run dev
 
 סכמת הדאטאבייס נמצאת ב-`supabase/migrations/`. כל הטבלאות עם קידומת `inv_`.
 
-1. הרץ את קבצי ה-migration לפי הסדר ב-SQL Editor, או `supabase db push`
+0. הפרויקט: `invitations-rona` (ref `mrtzofgdnkjscfhiahfg`, אזור eu-central-1). המיגרציות כבר הוחלו עליו.
+1. לפרויקט חדש: הרץ את קבצי ה-migration לפי הסדר ב-SQL Editor, או `supabase db push`
 2. העתק מ-Project Settings > API את ה-URL, ה-publishable key וה-secret key ל-`.env.local`
 
 ### הוספת עובד
