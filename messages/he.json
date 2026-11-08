@@ -51,8 +51,9 @@
       "attending": "אישרו (מגיעים)",
       "declined": "לא מגיעים"
     },
-    "inviteesComingSoon": "רשימת המוזמנים ושליחת ההזמנות יתווספו בשלבים 3-4.",
-    "publicLinkClosed": "הקישור הכללי סגור לאירוע הזה. רק מוזמנים עם קישור אישי יכולים לאשר הגעה."
+    "publicLinkClosed": "הקישור הכללי סגור לאירוע הזה. רק מוזמנים עם קישור אישי יכולים לאשר הגעה.",
+    "inviteesHelp": "הוספה, ייבוא מ-Excel וקישור אישי לכל מוזמן. שליחת ההזמנות תתווסף בשלב 4.",
+    "manageInvitees": "ניהול מוזמנים"
   },
   "eventForm": {
     "createTitle": "אירוע חדש",
@@ -199,6 +200,85 @@
     },
     "notFoundTitle": "ההזמנה לא נמצאה",
     "notFoundBody": "הקישור שגוי או שהאירוע כבר לא פעיל.",
-    "shareSiteName": "הזמנה דיגיטלית"
+    "shareSiteName": "הזמנה דיגיטלית",
+    "personalGreeting": "שלום {name}!",
+    "alreadyConfirmed": "כבר אישרת הגעה של {count, plural, one {אדם אחד} other {# אנשים}}. אפשר לעדכן כאן.",
+    "alreadyDeclined": "עדכנת שלא תוכל/י להגיע. אפשר לשנות כאן."
+  },
+  "invitees": {
+    "title": "מוזמנים",
+    "addInvitee": "הוספת מוזמן",
+    "total": "{count, plural, one {מוזמן אחד} other {# מוזמנים}}",
+    "status": {
+      "pending": "טרם נשלח",
+      "sent": "נשלח",
+      "opened": "נפתח",
+      "confirmed": "אישר",
+      "declined": "לא מגיע"
+    },
+    "statusLabel": "סטטוס",
+    "allStatuses": "כל הסטטוסים",
+    "allGroups": "כל הקבוצות",
+    "search": "חיפוש לפי שם, טלפון או אימייל",
+    "showing": "מוצגים {shown} מתוך {total}",
+    "deleteSelected": "מחיקת {count} מסומנים",
+    "deleteConfirm": "{count, plural, one {למחוק את {name}?} other {למחוק # מוזמנים?}} הקישור האישי יפסיק לעבוד. אישורי הגעה שכבר התקבלו יישמרו.",
+    "empty": "עדיין אין מוזמנים. הוסיפו מוזמן או ייבאו רשימה מ-Excel.",
+    "expected": "{count, plural, one {מוזמן 1} other {# מוזמנים}}",
+    "copyLink": "העתק קישור אישי",
+    "copied": "הועתק",
+    "open": "פתח",
+    "edit": "עריכה",
+    "delete": "מחיקה",
+    "fields": {
+      "full_name": "שם",
+      "phone": "טלפון",
+      "email": "אימייל",
+      "group_name": "קבוצה",
+      "expected_guests": "כמות מוזמנים"
+    },
+    "groupPlaceholder": "למשל: משפחה, חברים, עבודה",
+    "phoneOrEmailHelp": "חובה טלפון או אימייל. טלפון נדרש לשליחה בוואטסאפ, אימייל לשליחה במייל.",
+    "cancel": "ביטול",
+    "save": "שמירה",
+    "add": "הוספה",
+    "saving": "שומר...",
+    "errors": {
+      "nameRequired": "חסר שם",
+      "tooLong": "ארוך מדי",
+      "phoneInvalid": "טלפון לא תקין",
+      "emailInvalid": "אימייל לא תקין",
+      "phoneOrEmail": "חובה טלפון או אימייל",
+      "guestCountInvalid": "כמות לא תקינה (1-50)",
+      "phoneTaken": "כבר יש מוזמן עם הטלפון הזה",
+      "saveFailed": "השמירה נכשלה",
+      "duplicateInFile": "מופיע פעמיים בקובץ",
+      "invalid": "שורה לא תקינה"
+    },
+    "import": {
+      "button": "ייבוא מ-Excel",
+      "title": "ייבוא רשימת מוזמנים",
+      "help": "קובץ Excel (.xlsx) או CSV. השורה הראשונה היא כותרות העמודות. מוזמן שכבר קיים (לפי טלפון) יעודכן ולא ישוכפל.",
+      "chooseFile": "בחירת קובץ",
+      "reading": "קורא...",
+      "sample": "הורדת קובץ לדוגמה",
+      "mappingTitle": "איזו עמודה מתאימה לכל שדה?",
+      "noColumn": "— ללא —",
+      "check": "בדיקה",
+      "summary": "{rows} שורות: {valid} תקינות, {invalid} עם שגיאות (לא ייובאו)",
+      "submit": "ייבוא {count} מוזמנים",
+      "importing": "מייבא...",
+      "cancel": "ביטול",
+      "doneTitle": "הייבוא הסתיים",
+      "doneSummary": "נוספו {added}, עודכנו {updated}, נכשלו {failed}.",
+      "row": "שורה {n}",
+      "close": "סגירה",
+      "errors": {
+        "noFile": "לא נבחר קובץ",
+        "tooBig": "הקובץ גדול מ-5MB",
+        "unreadable": "לא הצלחנו לקרוא את הקובץ. שמרו אותו כ-xlsx או CSV.",
+        "empty": "הקובץ ריק"
+      }
+    }
   }
 }

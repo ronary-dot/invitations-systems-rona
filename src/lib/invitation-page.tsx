@@ -34,14 +34,19 @@ export async function eventMetadata(event: PublicEvent, url: string): Promise<Me
 }
 
 // Shared by the general link and (stage 3) the personal invite link.
-export async function renderInvitation(event: PublicEvent, target: RsvpTarget, initial?: RsvpInitial) {
+export async function renderInvitation(
+  event: PublicEvent,
+  target: RsvpTarget,
+  initial?: RsvpInitial,
+  before?: React.ReactNode,
+) {
   const locale = await getLocale();
   const t = await getTranslations("invite.rsvp");
   const template = getTemplate(event.template_id);
   const accent = event.primary_color ?? template.palette.accent;
 
   const status = getRsvpStatus(event);
-  const rsvp =
+  const form =
     status === "open" ? (
       <RsvpForm target={target} accent={accent} initial={initial} />
     ) : (
@@ -49,6 +54,14 @@ export async function renderInvitation(event: PublicEvent, target: RsvpTarget, i
         {t(status === "full" ? "closedFull" : status === "event_passed" ? "closedPassed" : "closedDeadline")}
       </p>
     );
+  const rsvp = before ? (
+    <div className="flex flex-col gap-5">
+      {before}
+      {form}
+    </div>
+  ) : (
+    form
+  );
 
   return renderTemplate(event.template_id, {
     event,

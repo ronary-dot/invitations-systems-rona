@@ -51,8 +51,9 @@
       "attending": "Attending (guests)",
       "declined": "Not attending"
     },
-    "inviteesComingSoon": "The guest list and invitation sending arrive in stages 3-4.",
-    "publicLinkClosed": "The general link is closed for this event. Only invitees with a personal link can RSVP."
+    "publicLinkClosed": "The general link is closed for this event. Only invitees with a personal link can RSVP.",
+    "inviteesHelp": "Add, import from Excel and a personal link per invitee. Sending invitations arrives in stage 4.",
+    "manageInvitees": "Manage invitees"
   },
   "eventForm": {
     "createTitle": "New event",
@@ -199,6 +200,85 @@
     },
     "notFoundTitle": "Invitation not found",
     "notFoundBody": "The link is wrong or the event is no longer active.",
-    "shareSiteName": "Digital invitation"
+    "shareSiteName": "Digital invitation",
+    "personalGreeting": "Hi {name}!",
+    "alreadyConfirmed": "You've confirmed {count, plural, one {1 guest} other {# guests}}. You can update it here.",
+    "alreadyDeclined": "You've told us you can't make it. You can change that here."
+  },
+  "invitees": {
+    "title": "Invitees",
+    "addInvitee": "Add invitee",
+    "total": "{count, plural, one {1 invitee} other {# invitees}}",
+    "status": {
+      "pending": "Not sent",
+      "sent": "Sent",
+      "opened": "Opened",
+      "confirmed": "Attending",
+      "declined": "Not attending"
+    },
+    "statusLabel": "Status",
+    "allStatuses": "All statuses",
+    "allGroups": "All groups",
+    "search": "Search by name, phone or email",
+    "showing": "Showing {shown} of {total}",
+    "deleteSelected": "Delete {count} selected",
+    "deleteConfirm": "{count, plural, one {Delete {name}?} other {Delete # invitees?}} The personal link will stop working. RSVPs already received are kept.",
+    "empty": "No invitees yet. Add one or import a list from Excel.",
+    "expected": "{count, plural, one {1 guest} other {# guests}}",
+    "copyLink": "Copy personal link",
+    "copied": "Copied",
+    "open": "Open",
+    "edit": "Edit",
+    "delete": "Delete",
+    "fields": {
+      "full_name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "group_name": "Group",
+      "expected_guests": "Guests"
+    },
+    "groupPlaceholder": "e.g. Family, Friends, Work",
+    "phoneOrEmailHelp": "Phone or email is required. Phone is needed for WhatsApp, email for email invitations.",
+    "cancel": "Cancel",
+    "save": "Save",
+    "add": "Add",
+    "saving": "Saving...",
+    "errors": {
+      "nameRequired": "Name missing",
+      "tooLong": "Too long",
+      "phoneInvalid": "Invalid phone",
+      "emailInvalid": "Invalid email",
+      "phoneOrEmail": "Phone or email required",
+      "guestCountInvalid": "Invalid count (1-50)",
+      "phoneTaken": "An invitee with this phone already exists",
+      "saveFailed": "Saving failed",
+      "duplicateInFile": "Appears twice in the file",
+      "invalid": "Invalid row"
+    },
+    "import": {
+      "button": "Import from Excel",
+      "title": "Import guest list",
+      "help": "Excel (.xlsx) or CSV file. The first row holds the column headers. Existing invitees (same phone) are updated, not duplicated.",
+      "chooseFile": "Choose file",
+      "reading": "Reading...",
+      "sample": "Download a sample file",
+      "mappingTitle": "Which column matches each field?",
+      "noColumn": "— none —",
+      "check": "Check",
+      "summary": "{rows} rows: {valid} valid, {invalid} with errors (skipped)",
+      "submit": "Import {count} invitees",
+      "importing": "Importing...",
+      "cancel": "Cancel",
+      "doneTitle": "Import finished",
+      "doneSummary": "{added} added, {updated} updated, {failed} failed.",
+      "row": "Row {n}",
+      "close": "Close",
+      "errors": {
+        "noFile": "No file chosen",
+        "tooBig": "File is larger than 5MB",
+        "unreadable": "Could not read the file. Save it as xlsx or CSV.",
+        "empty": "The file is empty"
+      }
+    }
   }
 }

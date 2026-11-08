@@ -65,8 +65,14 @@ export default async function EventDetailPage({ params }: { params: Promise<{ id
         <Stat label={t("admin.stats.declined")} value={declined} />
       </section>
 
-      <section className="rounded-xl border border-dashed border-border p-5 text-sm text-muted">
-        {t("admin.inviteesComingSoon")}
+      <section className="flex flex-col gap-3 rounded-xl border border-border bg-white p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="font-semibold">{t("invitees.title")}</h2>
+          <p className="text-sm text-muted">{t("admin.inviteesHelp")}</p>
+        </div>
+        <Link href={`/admin/events/${id}/invitees`} className={buttonLinkClass("primary")}>
+          {t("admin.manageInvitees")}
+        </Link>
       </section>
 
       <section className="flex flex-col gap-3 rounded-xl border border-border bg-white p-5">

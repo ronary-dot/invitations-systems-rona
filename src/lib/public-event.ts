@@ -38,3 +38,24 @@ export function getRsvpStatus(event: PublicEvent, now = Date.now()): RsvpStatus 
   if (event.max_guests != null && event.attending_guests >= event.max_guests) return "full";
   return "open";
 }
+
+export type PersonalInvite = {
+  event: PublicEvent;
+  invitee: { full_name: string; phone: string | null; email: string | null; expected_guests: number };
+  registration: {
+    full_name: string;
+    phone: string;
+    email: string | null;
+    attending: boolean;
+    guest_count: number;
+    guest_names: string[];
+    notes: string | null;
+  } | null;
+};
+
+export async function getPersonalInvite(token: string): Promise<PersonalInvite | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("inv_invite", { p_token: token });
+  if (error || !data) return null;
+  return data as unknown as PersonalInvite;
+}

@@ -150,6 +150,8 @@ export type Database = {
       inv_add_staff: { Args: { p_display_name?: string; p_email: string }; Returns: string };
       inv_is_staff: { Args: never; Returns: boolean };
       inv_public_event: { Args: { p_slug: string }; Returns: Json };
+      inv_invite: { Args: { p_token: string }; Returns: Json };
+      inv_mark_invite_opened: { Args: { p_token: string }; Returns: undefined };
       inv_register: {
         Args: {
           p_slug: string | null;
@@ -174,5 +176,7 @@ export type EventRow = EventRowT;
 export type EventType = Enums["inv_event_type"];
 export type EventInsert = Database["public"]["Tables"]["inv_events"]["Insert"];
 export type InviteeRow = InviteeRowT;
+export type InviteeInsert = Database["public"]["Tables"]["inv_invitees"]["Insert"];
+export type InviteeStatus = Enums["inv_invitee_status"];
 export type RegistrationRow = RegistrationRowT;
 export type MessageLogRow = MessageLogRowT;

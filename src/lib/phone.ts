@@ -9,6 +9,8 @@ export function normalizePhone(input: string): string | null {
     return "+" + digits;
   }
   if (!/^[0-9]+$/.test(s)) return null;
+  // Israeli international format without + (common in spreadsheets): 9725XXXXXXXX
+  if (/^972[1-9][0-9]{7,8}$/.test(s)) return "+" + s;
   // Israeli local format: 0 + 8 or 9 digits (05x mobile, 0x landline, 07x)
   if (/^0[2-9][0-9]{7,8}$/.test(s)) return "+972" + s.slice(1);
   // Israeli number without the leading 0
