@@ -5,3 +5,11 @@ export function getSiteUrl() {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   return "http://localhost:3000";
 }
+
+export function getPublicEventUrl(slug: string) {
+  return `${getSiteUrl()}/e/${slug}`;
+}
+
+export function getInviteUrl(token: string) {
+  return `${getSiteUrl()}/i/${token}`;
+}

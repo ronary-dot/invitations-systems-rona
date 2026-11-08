@@ -49,6 +49,8 @@ src/components/       קומפוננטות משותפות
 src/i18n/             הגדרות שפה, קריאת locale מעוגייה
 src/lib/supabase/     לקוחות Supabase: דפדפן, שרת, admin, proxy
 src/proxy.ts          רענון session והגנה על /admin
+src/lib/types/        טיפוסי הדאטאבייס (נוצרו מ-Supabase)
+src/templates/        רישום התבניות (העיצובים עצמם בשלב 2)
 messages/             קבצי תרגום he.json, en.json
 supabase/migrations/  סכמת DB
 docs/                 אפיון ותכנית עבודה
