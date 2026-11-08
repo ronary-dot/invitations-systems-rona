@@ -9,6 +9,8 @@ import { deleteInvitees } from "@/app/admin/events/[id]/invitees/actions";
 import type { InviteeStatus } from "@/lib/types/database";
 import { InviteeForm } from "./InviteeForm";
 import { ImportPanel } from "./ImportPanel";
+import { SendPanel } from "./SendPanel";
+import { markWhatsappSent, sendInvitationEmails } from "@/app/admin/events/[id]/invitees/send-actions";
 
 export type InviteeItem = {
   id: string;
@@ -21,6 +23,8 @@ export type InviteeItem = {
   status: InviteeStatus;
   attendingGuests: number | null;
   inviteUrl: string;
+  messageText: string;
+  whatsappUrl: string | null;
 };
 
 const STATUSES: InviteeStatus[] = ["pending", "sent", "opened", "confirmed", "declined"];
@@ -33,13 +37,22 @@ const statusStyle: Record<InviteeStatus, string> = {
   declined: "bg-red-50 text-red-700",
 };
 
-export function InviteesManager({ eventId, items }: { eventId: string; items: InviteeItem[] }) {
+export function InviteesManager({
+  eventId,
+  items,
+  emailConfigured,
+}: {
+  eventId: string;
+  items: InviteeItem[];
+  emailConfigured: boolean;
+}) {
   const t = useTranslations("invitees");
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("");
   const [status, setStatus] = useState<InviteeStatus | "">("");
-  const [mode, setMode] = useState<"none" | "add" | "import">("none");
+  const [mode, setMode] = useState<"none" | "add" | "import" | "send">("none");
+  const [rowMsg, setRowMsg] = useState<{ id: string; text: string } | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [copied, setCopied] = useState<string | null>(null);
@@ -109,7 +122,10 @@ export function InviteesManager({ eventId, items }: { eventId: string; items: In
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <Button onClick={() => setMode(mode === "add" ? "none" : "add")}>{t("addInvitee")}</Button>
+        {items.length > 0 && (
+          <Button onClick={() => setMode(mode === "send" ? "none" : "send")}>{t("sendInvitations")}</Button>
+        )}
+        <Button variant="secondary" onClick={() => setMode(mode === "add" ? "none" : "add")}>{t("addInvitee")}</Button>
         <Button variant="secondary" onClick={() => setMode(mode === "import" ? "none" : "import")}>
           {t("import.button")}
         </Button>
@@ -119,6 +135,16 @@ export function InviteesManager({ eventId, items }: { eventId: string; items: In
         <InviteeForm eventId={eventId} inviteeId={null} initial={{ expected_guests: "1" }} groups={groups} onDone={done} />
       )}
       {mode === "import" && <ImportPanel eventId={eventId} onDone={done} />}
+      {mode === "send" && (
+        <SendPanel
+          eventId={eventId}
+          items={items}
+          selectedIds={[...selected]}
+          groups={groups}
+          emailConfigured={emailConfigured}
+          onClose={() => setMode("none")}
+        />
+      )}
 
       {items.length === 0 ? (
         <p className="rounded-xl border border-dashed border-border p-8 text-center text-muted">{t("empty")}</p>
@@ -214,6 +240,37 @@ export function InviteesManager({ eventId, items }: { eventId: string; items: In
                       {t(`status.${i.status}`)}
                       {i.attendingGuests != null && ` (${i.attendingGuests})`}
                     </span>
+                    {i.whatsappUrl && (
+                      <a
+                        href={i.whatsappUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-lg px-2 py-1.5 text-sm font-medium text-[#128C7E] hover:bg-emerald-50"
+                        onClick={() => {
+                          void markWhatsappSent(eventId, i.id).then(() => router.refresh());
+                        }}
+                      >
+                        {t("whatsapp")}
+                      </a>
+                    )}
+                    {i.email && emailConfigured && (
+                      <Button
+                        variant="ghost"
+                        className="min-h-9 px-2"
+                        disabled={pending}
+                        onClick={() => {
+                          if (!window.confirm(t("emailConfirm", { name: i.full_name, email: i.email ?? "" }))) return;
+                          startTransition(async () => {
+                            const r = await sendInvitationEmails(eventId, [i.id]);
+                            setRowMsg({ id: i.id, text: r.sent ? t("emailSent") : t("emailFailed", { error: r.failed[0]?.error ?? r.fatal ?? "" }) });
+                            router.refresh();
+                          });
+                        }}
+                      >
+                        {t("email")}
+                      </Button>
+                    )}
+                    {rowMsg?.id === i.id && <span className="text-xs text-muted" role="status">{rowMsg.text}</span>}
                     <Button variant="ghost" className="min-h-9 px-2" onClick={() => copy(i)}>
                       {copied === i.id ? t("copied") : t("copyLink")}
                     </Button>

@@ -52,7 +52,7 @@
       "declined": "לא מגיעים"
     },
     "publicLinkClosed": "הקישור הכללי סגור לאירוע הזה. רק מוזמנים עם קישור אישי יכולים לאשר הגעה.",
-    "inviteesHelp": "הוספה, ייבוא מ-Excel וקישור אישי לכל מוזמן. שליחת ההזמנות תתווסף בשלב 4.",
+    "inviteesHelp": "הוספה, ייבוא מ-Excel, קישור אישי ושליחת הזמנות בוואטסאפ ובאימייל.",
     "manageInvitees": "ניהול מוזמנים"
   },
   "eventForm": {
@@ -278,6 +278,75 @@
         "tooBig": "הקובץ גדול מ-5MB",
         "unreadable": "לא הצלחנו לקרוא את הקובץ. שמרו אותו כ-xlsx או CSV.",
         "empty": "הקובץ ריק"
+      }
+    },
+    "sendInvitations": "שליחת הזמנות",
+    "whatsapp": "וואטסאפ",
+    "email": "אימייל",
+    "emailConfirm": "לשלוח הזמנה באימייל ל{name} ({email})?",
+    "emailSent": "נשלח",
+    "emailFailed": "נכשל: {error}"
+  },
+  "send": {
+    "title": "שליחת הזמנות",
+    "close": "סגירה",
+    "channel": "ערוץ",
+    "channels": {
+      "whatsapp": "וואטסאפ",
+      "email": "אימייל"
+    },
+    "audience": "למי לשלוח",
+    "audiences": {
+      "selected": "המסומנים ({count})",
+      "notSent": "מי שעוד לא קיבל הזמנה",
+      "all": "כל המוזמנים",
+      "group": "קבוצה: {group}"
+    },
+    "recipients": "{count, plural, =0 {אין נמענים} one {נמען אחד} other {# נמענים}}",
+    "missingEmail": "{count, plural, one {מוזמן אחד בלי אימייל} other {# מוזמנים בלי אימייל}}",
+    "missingPhone": "{count, plural, one {מוזמן אחד בלי טלפון} other {# מוזמנים בלי טלפון}}",
+    "preview": "כך תיראה ההודעה ל{name}:",
+    "email": {
+      "test": "שלח מייל בדיקה אליי",
+      "send": "שליחה ל-{count} נמענים",
+      "sending": "שולח...",
+      "testSent": "מייל בדיקה נשלח אל {to}",
+      "testFailed": "שליחת הבדיקה נכשלה: {error}",
+      "confirm": "לשלוח את ההזמנה באימייל ל-{count} נמענים?",
+      "progress": "נשלחו {sent} מתוך {total}, נכשלו {failed}",
+      "notConfigured": "שליחת אימייל עוד לא הוגדרה. יש להגדיר את GMAIL_USER ו-GMAIL_APP_PASSWORD בהגדרות השרת.",
+      "fatal": {
+        "notConfigured": "שליחת אימייל לא מוגדרת",
+        "eventNotFound": "האירוע לא נמצא"
+      }
+    },
+    "whatsapp": {
+      "help": "וואטסאפ נפתח עם ההודעה מוכנה, ואת/ה לוחצ/ת \"שלח\". אחרי כל מוזמן עוברים לבא בתור.",
+      "start": "התחלת שליחה רציפה ({count})",
+      "position": "{n} מתוך {total}",
+      "open": "פתח וואטסאפ ועבור לבא",
+      "skip": "דלג",
+      "back": "חזרה",
+      "alreadySent": "כבר נשלחה לו הזמנה בעבר",
+      "done": "סיימת! {count, plural, one {עברת על מוזמן אחד} other {עברת על # מוזמנים}}.",
+      "restart": "התחלה מחדש"
+    },
+    "log": {
+      "title": "יומן שליחות",
+      "empty": "עוד לא נשלחו הודעות.",
+      "channels": {
+        "email": "אימייל",
+        "whatsapp": "וואטסאפ"
+      },
+      "kinds": {
+        "invitation": "הזמנה",
+        "reminder": "תזכורת",
+        "nudge": "תזכורת למי שלא ענה",
+        "test": "בדיקה"
+      },
+      "status": {
+        "sent": "נשלח",
+        "failed": "נכשל"
       }
     }
   }

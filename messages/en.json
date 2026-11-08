@@ -52,7 +52,7 @@
       "declined": "Not attending"
     },
     "publicLinkClosed": "The general link is closed for this event. Only invitees with a personal link can RSVP.",
-    "inviteesHelp": "Add, import from Excel and a personal link per invitee. Sending invitations arrives in stage 4.",
+    "inviteesHelp": "Add, import from Excel, personal links and sending invitations by WhatsApp and email.",
     "manageInvitees": "Manage invitees"
   },
   "eventForm": {
@@ -278,6 +278,75 @@
         "tooBig": "File is larger than 5MB",
         "unreadable": "Could not read the file. Save it as xlsx or CSV.",
         "empty": "The file is empty"
+      }
+    },
+    "sendInvitations": "Send invitations",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "emailConfirm": "Email the invitation to {name} ({email})?",
+    "emailSent": "Sent",
+    "emailFailed": "Failed: {error}"
+  },
+  "send": {
+    "title": "Send invitations",
+    "close": "Close",
+    "channel": "Channel",
+    "channels": {
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    },
+    "audience": "Send to",
+    "audiences": {
+      "selected": "Selected ({count})",
+      "notSent": "Not invited yet",
+      "all": "All invitees",
+      "group": "Group: {group}"
+    },
+    "recipients": "{count, plural, =0 {No recipients} one {1 recipient} other {# recipients}}",
+    "missingEmail": "{count, plural, one {1 invitee without email} other {# invitees without email}}",
+    "missingPhone": "{count, plural, one {1 invitee without phone} other {# invitees without phone}}",
+    "preview": "Message preview for {name}:",
+    "email": {
+      "test": "Send me a test email",
+      "send": "Send to {count} recipients",
+      "sending": "Sending...",
+      "testSent": "Test email sent to {to}",
+      "testFailed": "Test failed: {error}",
+      "confirm": "Send the invitation by email to {count} recipients?",
+      "progress": "Sent {sent} of {total}, {failed} failed",
+      "notConfigured": "Email sending is not set up yet. Set GMAIL_USER and GMAIL_APP_PASSWORD in the server settings.",
+      "fatal": {
+        "notConfigured": "Email is not configured",
+        "eventNotFound": "Event not found"
+      }
+    },
+    "whatsapp": {
+      "help": "WhatsApp opens with the message ready and you press Send. Then move on to the next invitee.",
+      "start": "Start continuous sending ({count})",
+      "position": "{n} of {total}",
+      "open": "Open WhatsApp and go to next",
+      "skip": "Skip",
+      "back": "Back",
+      "alreadySent": "Already invited before",
+      "done": "Done! {count, plural, one {You went through 1 invitee} other {You went through # invitees}}.",
+      "restart": "Start over"
+    },
+    "log": {
+      "title": "Message log",
+      "empty": "No messages sent yet.",
+      "channels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp"
+      },
+      "kinds": {
+        "invitation": "Invitation",
+        "reminder": "Reminder",
+        "nudge": "Nudge",
+        "test": "Test"
+      },
+      "status": {
+        "sent": "Sent",
+        "failed": "Failed"
       }
     }
   }
