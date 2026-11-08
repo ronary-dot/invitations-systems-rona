@@ -149,6 +149,21 @@ export type Database = {
     Functions: {
       inv_add_staff: { Args: { p_display_name?: string; p_email: string }; Returns: string };
       inv_is_staff: { Args: never; Returns: boolean };
+      inv_public_event: { Args: { p_slug: string }; Returns: Json };
+      inv_register: {
+        Args: {
+          p_slug: string | null;
+          p_token: string | null;
+          p_full_name: string;
+          p_phone: string;
+          p_email: string | null;
+          p_attending: boolean;
+          p_guest_count: number;
+          p_guest_names: Json;
+          p_notes: string | null;
+        };
+        Returns: Json;
+      };
     };
     Enums: Enums;
     CompositeTypes: { [_ in never]: never };
@@ -156,6 +171,7 @@ export type Database = {
 };
 
 export type EventRow = EventRowT;
+export type EventType = Enums["inv_event_type"];
 export type EventInsert = Database["public"]["Tables"]["inv_events"]["Insert"];
 export type InviteeRow = InviteeRowT;
 export type RegistrationRow = RegistrationRowT;
